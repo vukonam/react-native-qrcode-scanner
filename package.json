@@ -1,6 +1,6 @@
 {
-  "name": "react-native-qrcode-scanner",
-  "version": "1.5.5",
+  "name": "react-native-simple-qrcode-scanner",
+  "version": "1.5.6",
   "description": "A QR code scanner for React Native.",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,12 @@
     "barcode"
   ],
   "author": "Moaaz Sidat",
+  "contributors": [
+  { "name": "Vukona Mnisi",
+    "email": "vukona.n.mnisi@gmail.com",
+    "url": "https://mnisivee.com"  
+  }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/moaazsidat/react-native-qrcode-scanner/issues"

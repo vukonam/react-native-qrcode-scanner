@@ -33,6 +33,7 @@ export interface RNQRCodeScannerProps {
   cameraProps?: RNCameraProps;
   cameraTimeout?: number;
   cameraTimeoutView?: JSX.Element;
+  showOnlyCamera?: boolean;
 }
 
 export interface RNQRCodeScannerState {
@@ -56,5 +57,6 @@ export default class QRCodeScanner extends Component<
   _renderCameraMarker(): JSX.Element | null;
   _renderCameraComponent(): JSX.Element | null;
   _renderCamera(): JSX.Element;
+  _renderComponent(): JSX.Element;
   reactivate(): void;
 }

@@ -40,7 +40,6 @@ export default class QRCodeScanner extends Component {
     customMarker: PropTypes.element,
     containerStyle: PropTypes.any,
     cameraStyle: PropTypes.any,
-    cameraContainerStyle: PropTypes.any,
     markerStyle: PropTypes.any,
     topViewStyle: PropTypes.any,
     bottomViewStyle: PropTypes.any,
@@ -54,10 +53,11 @@ export default class QRCodeScanner extends Component {
     flashMode: PropTypes.oneOf(CAMERA_FLASH_MODES),
     cameraProps: PropTypes.object,
     cameraTimeoutView: PropTypes.element,
+    showOnlyCamera: PropTypes.bool
   };
 
   static defaultProps = {
-    onRead: () => null,
+    onRead: () => console.log('QR code scanned!'),
     reactivate: false,
     vibrate: true,
     reactivateTimeout: 0,
@@ -121,6 +121,7 @@ export default class QRCodeScanner extends Component {
         <Text style={{ color: 'white' }}>Tap to activate camera</Text>
       </View>
     ),
+    showOnlyCamera: false
   };
 
   constructor(props) {
@@ -279,7 +280,7 @@ export default class QRCodeScanner extends Component {
           message: this.props.permissionDialogMessage,
           buttonPositive: this.props.buttonPositive,
         }}
-        style={[styles.camera, this.props.cameraStyle]}
+        style={[this.props.showOnlyCamera ? styles.cameraOnly : styles.cameraWithInfoView, this.props.cameraStyle]}
         onBarCodeRead={this._handleBarCodeRead.bind(this)}
         type={this.props.cameraType}
         flashMode={this.props.flashMode}
@@ -290,7 +291,13 @@ export default class QRCodeScanner extends Component {
       </Camera>
     );
   }
-
+  _renderFilth() {
+    return (
+      <View style={{ flex: 1, backgroundColor: 'blue'}}>
+        
+      </View>
+    )
+  }
   _renderCamera() {
     const {
       notAuthorizedView,
@@ -323,14 +330,27 @@ export default class QRCodeScanner extends Component {
             style={{
               opacity: this.state.fadeInOpacity,
               backgroundColor: 'transparent',
-              height:
-                (this.props.cameraStyle && this.props.cameraStyle.height) ||
-                styles.camera.height,
+              flex: 1,
+              height: '100%',
+              overflow: 'hidden'
             }}
           >
             {this._renderCameraComponent()}
           </Animated.View>
         );
+        // return (
+        //   <Animated.View
+        //     style={{
+        //       opacity: this.state.fadeInOpacity,
+        //       backgroundColor: 'transparent',
+        //       height:
+        //         (this.props.cameraStyle && this.props.cameraStyle.height) ||
+        //         styles.camera.height,
+        //     }}
+        //   >
+        //     {this._renderCameraComponent()}
+        //   </Animated.View>
+        // );
       }
       return this._renderCameraComponent();
     } else if (!isAuthorizationChecked) {
@@ -343,17 +363,45 @@ export default class QRCodeScanner extends Component {
   reactivate() {
     this._setScanning(false);
   }
+  _renderComponent() {
+    if (this.props.showOnlyCamera) {
+      return (
+        <View style={[styles.cameraOnly ]}>{this._renderCamera()}</View>
+      )
+    } else {
+      return(
+        <>
+        <View style={[{ flex: 1, borderColor: 'red', borderWidth: 1}]}>
+          {this._renderTopContent()}
+        </View>
+        <View style={[ styles.cameraWithInfoView ]}>{this._renderCamera()}</View>
+        <View style={[{ flex: 1, borderColor: 'red', borderWidth: 1}]}>
+          {this._renderBottomContent()}
+        </View>
+      </>
+      )
 
-  render() {
+    }
+  }
+
+  renders() {
     return (
-      <View style={[styles.mainContainer, this.props.containerStyle]}>
+      <View style={[styles.mainContainer, this.props.containerStyle, { maxHeight: this.props.containerStyle.height}]}>
+
         <View style={[styles.infoView, this.props.topViewStyle]}>
           {this._renderTopContent()}
         </View>
-        <View style={this.props.cameraContainerStyle}>{this._renderCamera()}</View>
+        <View style={this.props.cameraStyle}>{this._renderCamera()}</View>
         <View style={[styles.infoView, this.props.bottomViewStyle]}>
           {this._renderBottomContent()}
         </View>
+      </View>
+    );
+  }
+  render() {
+    return (
+      <View style={[styles.mainContainer, this.props.containerStyle]}>
+        {this._renderComponent()}
       </View>
     );
   }
@@ -362,21 +410,38 @@ export default class QRCodeScanner extends Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    backgroundColor: 'red'
   },
   infoView: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    width: Dimensions.get('window').width,
+    width: Dimensions.get('window').width -20,
+    borderWidth: 1,
+    borderColor: 'green',
+    zIndex: 10
   },
 
-  camera: {
-    flex: 0,
-    alignItems: 'center',
+  cameraWithInfoView: {
+    flex: 3,
+    // alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    height: Dimensions.get('window').width,
-    width: Dimensions.get('window').width,
+    // backgroundColor: 'red',
+    height: '100%',
+    width: '100%',
+    maxWidth: '100%',
+    zIndex: 1
+  },
+  cameraOnly: {
+    flex: 1,
+    // alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: 'transparent',
+    // height: '100%',
+    // width: '100%',
+    // maxWidth: '100%',
+    // zIndex: 1
   },
 
   rectangleContainer: {
