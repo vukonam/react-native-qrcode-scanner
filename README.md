@@ -4,6 +4,8 @@
 
 A QR code scanner component for React Native built on top of [react-native-camera by Lochlan Wansbrough](https://github.com/lwansbrough/react-native-camera)
 
+This is as extension on the library by Moaaz Sidat, mainly to solve the issue of styling the QRScanner component from the screens you need to use them in.
+
 Please note, this will also function as a generic barcode scanner by the virtue of the above module supporting barcode scanning, however, this module was initially built as a QR code scanner.
 
 This module was originally written because the author couldn't find a module that could be simply plugged into a project without requiring too much setup.
@@ -231,6 +233,13 @@ FYI: [react-native-camera/flashMode](https://github.com/react-native-community/r
 - `RNCamera.Constants.FlashMode.auto` leaves your phone to decide when to use flash when taking photos, based on the lightning conditions that the camera observes.
 - `RNCamera.Constants.FlashMode.torch` turns on torch mode, meaning the flash light will be turned on all the time (even before taking photo) just like a flashlight.
 
+### `showOnlyCamera`
+
+proptype: `boolean`
+
+Use this to remove the top content and bottom content containers and enable full screen camera, or to maximise the camera within its parent's container.
+
+When this prop is used topContent and bottomContent will be ignored even when parsed.
 
 #### `topContent`
 
@@ -366,18 +375,7 @@ Thank you to all our backers & sponsors! 🙏
 
 <a href="https://opencollective.com/react-native-qrcode-scanner#backers" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/backers.svg?width=890"></a>
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
-
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/0/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/1/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/2/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/3/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/4/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/5/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/6/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/7/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/8/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/9/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/9/avatar.svg"></a>
+Support the original parent project by becoming a sponsor. Your logo will show up on the project's homepage: <a href="https://github.com/moaazsidat/react-native-qrcode-scanner#readme">react-native-qrcode-scanner</a>
 
 ## License
 

@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moaazsidat/react-native-qrcode-scanner.git"
+    "url": "git+https://github.com/vukonam/react-native-simple-qrcode-scanner"
   },
   "keywords": [
     "react-native",
@@ -29,7 +29,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moaazsidat/react-native-qrcode-scanner/issues"
+    "url": "https://github.com/vukonam/react-native-simple-qrcode-scanner/issues"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
@@ -47,7 +47,7 @@
   "peerDependencies": {
     "react-native-camera": ">=1.0.2"
   },
-  "homepage": "https://github.com/moaazsidat/react-native-qrcode-scanner#readme",
+  "homepage": "https://github.com/vukonam/react-native-simple-qrcode-scanner#readme",
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -65,6 +65,6 @@
   },
   "funding": {
     "type": "opencollective",
-    "url": "https://opencollective.com/react-native-qrcode-scanner"
+    "url": "https://opencollective.com/react-native-simple-qrcode-scanner"
   }
 }
