@@ -10,7 +10,7 @@ Please note, this will also function as a generic barcode scanner by the virtue 
 
 This module was originally written because the author couldn't find a module that could be simply plugged into a project without requiring too much setup.
 
-Looking for active contributors. See [Contribution guide](https://github.com/moaazsidat/react-native-qrcode-scanner/blob/master/CONTRIBUTION.md) for more details.
+The parent project is looking for active contributors. See [Contribution guide](https://github.com/moaazsidat/react-native-qrcode-scanner/blob/master/CONTRIBUTION.md) for more details.
 
 _**Please note**: Most of the support on debugging new issues, especially with Android, relies on the open source community. The project is on the look out for active contributors who want to maintain this library more rigorously._
 
@@ -68,8 +68,8 @@ If using an older version of this module with RCTCamera you will need to follow 
 
 ### To install and start using react-native-qrcode-scanner:
 
-1. `npm install react-native-qrcode-scanner --save`
-2. `react-native link react-native-qrcode-scanner`
+1. `npm install react-native-simple-qrcode-scanner --save`
+2. `react-native link react-native-simple-qrcode-scanner`
 
 #### react-native-permissions
 
@@ -89,7 +89,7 @@ You may also need to reset your simulator data after adding those permissions `D
 
 ## Usage
 
-To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag. More usage examples can be seen under the `examples/` folder.
+To use react-native-qrcode-scanner, `import` the `react-native-simple-qrcode-scanner` module and use the `<QRCodeScanner />` tag. More usage examples can be seen under the `examples/` folder.
 
 Here is an example of basic usage:
 
